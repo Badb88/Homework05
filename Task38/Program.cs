@@ -3,9 +3,9 @@
 [3 7 22 2 78] -> 76
 */
 
-int[] array = new int[5];
+double[] array = new double[5];
 
-void FillArray(int[] array)
+void FillArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -13,24 +13,26 @@ void FillArray(int[] array)
     }
 }
 
-void PrintArray(int[] arrayToPrint)
+void PrintArray(double[] col)
 {
-    Console.Write("[");
-    for (var i = 0; i < arrayToPrint.Length; i++)
+    Console.Write("Случайный массив: [");
+    for (int pos = 0; pos < col.Length; pos++)
     {
-        Console.Write(arrayToPrint[i]);
-        if (i != arrayToPrint.Length - 1)
+        if (pos < col.Length - 1)
         {
-
-            Console.Write(", ");
+            Console.Write($"{col[pos]}, ");
+        }
+        else
+        {
+            Console.Write(col[pos]);
         }
     }
-    Console.WriteLine("]");
+    Console.Write("]");
 }
 
-int MaxNumber(int[] array)
+double MaxNumber(double[] array)
 {
-    int max = array[0];
+    double max = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] > max)
@@ -41,9 +43,9 @@ int MaxNumber(int[] array)
     return max;
 }
 
-int MinNumber(int[] array)
+double MinNumber(double[] array)
 {
-    int min = array[0];
+    double min = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] < min)
@@ -55,8 +57,9 @@ int MinNumber(int[] array)
 }
 
 FillArray(array);
-int max = MaxNumber(array);
-int min = MinNumber(array);
-int dif = max - min;
 PrintArray(array);
+Console.WriteLine();
+double max = MaxNumber(array);
+double min = MinNumber(array);
+double dif = max - min;
 Console.WriteLine($"Максимальный элемент массива: [{max}]; минимальный [{min}]. Разница между ними: {dif}.");
