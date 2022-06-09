@@ -3,7 +3,7 @@
 [3 7 22 2 78] -> 76
 */
 
-double[] array = new double[5];
+double[] array = new double[6];
 
 void FillArray(double[] array)
 {
