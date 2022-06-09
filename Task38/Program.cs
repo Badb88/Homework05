@@ -21,7 +21,7 @@ void PrintArray(double[] col)
     {
         if (pos < col.Length - 1)
         {
-            Console.Write($"{col[pos]} / ");
+            Console.Write($"{col[pos]} | ");
         }
         else
         {
