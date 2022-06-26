@@ -6,8 +6,6 @@
 [6 7 3 6] -> 36 21
 */
 
-int[] array = new int[6];
-
 void FillArray(int[] collection)
 {
     for (int i = 0; i < collection.Length; i++)
@@ -21,33 +19,8 @@ void PrintArray(int[] col)
     Console.Write("[");
     for (int pos = 0; pos < col.Length; pos++)
     {
+        Console.Write(col[pos]);
         if (pos < col.Length - 1)
-        {
-            Console.Write($"{col[pos]}, ");
-        }
-        else
-        {
-            Console.Write(col[pos]);
-        }
-    }
-    Console.Write("]");
-}
-
-void ProductOfNumbers(int[] collection)
-{
-    for (int i = 0; i < collection.Length - i; i++)
-    {
-        collection[i] = collection[i] * collection[collection.Length - 1 - i];
-    }
-}
-
-void PrintArray1(int[] col1)
-{
-    Console.Write("[");
-    for (int pos1 = 0; pos1 < col1.Length - pos1; pos1++)
-    {
-        Console.Write(col1[pos1]);
-        if (pos1 < col1.Length - 1)
         {
             Console.Write(", ");
         }
@@ -55,11 +28,35 @@ void PrintArray1(int[] col1)
     Console.Write("]");
 }
 
+int[] ProductOfNumbers(int[] arrayProduct)
+{
+    int lengthResult = 0;
+    if (arrayProduct.Length % 2 == 0)
+    {
+        lengthResult = arrayProduct.Length / 2;
+    }
+    else
+    {
+        lengthResult = arrayProduct.Length / 2 + 1;
+    }
+    int[] result = new int[lengthResult];
+    for (int i = 0; i < arrayProduct.Length / 2; i++)
+    {
+        result[i] = arrayProduct[i] * arrayProduct[(arrayProduct.Length - 1) - i];
+    }
+    if (arrayProduct.Length % 2 != 0)
+    {
+        result[lengthResult - 1] = arrayProduct[arrayProduct.Length / 2];
+    }
+    return result;
+}
+
+int[] array = new int[5];
 FillArray(array);
-Console.WriteLine("Случайный массив ");
+Console.Write("Случайный массив -> ");
 PrintArray(array);
 Console.WriteLine();
 Console.WriteLine();
-ProductOfNumbers(array);
-Console.WriteLine("Массив из первой и последней пар чисел ");
-PrintArray1(array);
+int[] massiveResult = ProductOfNumbers(array);
+Console.Write("Массив из первой и последней пар чисел -> ");
+PrintArray(massiveResult);
